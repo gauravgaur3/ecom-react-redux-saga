@@ -5,8 +5,7 @@ export const cartData = (data = [], action) => {
     case ADD_TO_CART:
       return [action.data, ...data];
     case REMOVE_FROM_CART:
-      const remainingItems = data.filter((item)=>item.id!==action.data)
-      console.log (remainingItems);
+      const remainingItems = data.filter((item) => item.id !== action.data);
       return [...remainingItems];
     case EMPTY_CART:
       return (data = []);

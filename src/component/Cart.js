@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { emptyCart, removeFromCart } from '../redux/action';
+import { emptyCart, removeFromCart } from '../redux/actionForCart';
 const Cart = () => {
     const cartData = useSelector((state)=>state.cartData);
     const dispatch = useDispatch();
@@ -22,14 +22,14 @@ const Cart = () => {
                 </div>
                 <span className="text-muted my-2">₹ {totalAmount}</span>
               </li>
-              <li className="list-group-item d-flex justify-content-between lh-sm">
+             {cartData.length!==0?<li className="list-group-item d-flex justify-content-between lh-sm">
                 <div>
                   <h5 className="my-2">Delivery Charges</h5>
                 </div>
                 <span className="text-muted my-2">
                   +60
                 </span>
-              </li>
+              </li>:""}
               <li className="list-group-item d-flex justify-content-between lh-sm">
                 <div>
                   <h5 className="my-2">Checkout Amount</h5>
@@ -47,11 +47,10 @@ const Cart = () => {
           {/* My Bag */}
           <div className="col-md-7 col-lg-6">
             <h3 className="mb-3">MY BAG</h3>
-            {/* {cartData.length()>0?<div className="row g-3"> */}
+            {cartData.length!==0?<div className="">
               {
                 cartData.map((item)=>{
-                 return <div className="col-12">
-                  <div>
+                 return<div>
                     <hr/>
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="d-flex flex-row">
@@ -62,19 +61,10 @@ const Cart = () => {
                           height="100"
                           alt={item.title}
                         />
-
                         <div className="m-3">
-                          <h4 className="font-weight-bold d-block">{item.title}</h4>
-                          <h6>₹ {item.price}</h6>
-                          <span className="badge me-2 text-bg-secondary">
-                          Color {/*  {color} */}
-                          </span>
-
-                          <div className="d-inline-flex align-items-center">
-                            {/* <i className="bi bi-dash btn" onClick={()=>decrement(id)}></i> */}
-                            <input type="text" className="form-control form-control-sm w-25 text-center" placeholder={item.rating.count}/>
-                            {/* <i className="bi bi-plus btn" onClick={()=>increment(id)}></i> */}
-                          </div>
+                          <div className=' text-capitalize text-secondary'>{item.category}</div>
+                          <div className="fs-4">{item.title.substring(0, 28)}</div>
+                          <div className='fs-5'>₹ {item.price}</div>
                         </div>
                       </div>
                       <div className="d-flex flex-row align-items-center">
@@ -82,10 +72,9 @@ const Cart = () => {
                       </div>
                     </div>
                   </div>
-                </div>
                 })
               }
-            {/* </div>:<h3 className="">Your cart is empty!</h3>} */}
+            </div>:<div className="row justify-content-center align-items-center h-100 fw-semibold fs-3 border bg-secondary bg-opacity-10">Your Cart Is Empty!</div>}
           </div>
         </div>
       </div>

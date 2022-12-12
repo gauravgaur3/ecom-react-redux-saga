@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { productSearch } from "../redux/productAction";
+import { productSearch } from "../redux/actionForProduct";
 const Header = () => {
     const result = useSelector((state)=>state.cartData)
     const dispatch = useDispatch();
@@ -15,16 +15,14 @@ const Header = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav  mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
               </li>
-              <div>
-                <input className="form-control me-2" type="text" placeholder="Search" aria-label="Search" onChange={(event)=>dispatch(productSearch(event.target.value))}/>
-              </div>
             </ul>
-              <Link type="button" className="btn btn-light position-relative" to="/cart">
-                Cart
+                <input className="form-control w-25 ms-4" type="text" placeholder="Search" aria-label="Search" onChange={(event)=>dispatch(productSearch(event.target.value))}/>
+              <Link type="button" className="btn btn-light position-relative ms-auto" to="/cart">
+                <i class="bi bi-cart3"></i>
                 <span className="position-absolute top-0 start-99 translate-middle badge rounded-pill text-bg-secondary">
                   {result.length}
                 </span>

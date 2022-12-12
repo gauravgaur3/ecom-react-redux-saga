@@ -8,6 +8,6 @@ export const productList = () => {
 export const productSearch = (query) => {
   return {
     type: SEARCH_PRODUCT,
-    query
+    query,
   };
 };
