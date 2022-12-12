@@ -1,11 +1,13 @@
-import { PRODUCT_LIST } from "./constants";
+import { PRODUCT_LIST, SEARCH_PRODUCT } from "./constants";
 
-export const productList = async () => {
-  let data = await fetch("https://fakestoreapi.com/products?limit=1");
-  data = await data.json();
-  console.log(data);
+export const productList = () => {
   return {
     type: PRODUCT_LIST,
-    data,
+  };
+};
+export const productSearch = (query) => {
+  return {
+    type: SEARCH_PRODUCT,
+    query
   };
 };
