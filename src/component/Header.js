@@ -8,7 +8,7 @@ const Header = () => {
     console.log("redux data in header",result)
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">ShopNow</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,8 +22,8 @@ const Header = () => {
             </ul>
                 <input className="form-control w-25 ms-4" type="text" placeholder="Search" aria-label="Search" onChange={(event)=>dispatch(productSearch(event.target.value))}/>
               <Link type="button" className="btn btn-light position-relative ms-auto" to="/cart">
-                <i class="bi bi-cart3"></i>
-                <span className="position-absolute top-0 start-99 translate-middle badge rounded-pill text-bg-secondary">
+                <i className="bi bi-cart3"></i>
+                <span className="position-absolute top-0 start-99 translate-middle badge rounded-pill text-bg-warning">
                   {result.length}
                 </span>
               </Link>

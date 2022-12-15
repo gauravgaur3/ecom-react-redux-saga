@@ -20,21 +20,21 @@ const Cart = () => {
                 <div>
                   <h5 className="my-2">Sub-total</h5>
                 </div>
-                <span className="text-muted my-2">₹ {totalAmount}</span>
+                <span className="text-muted my-2">$ {totalAmount}</span>
               </li>
              {cartData.length!==0?<li className="list-group-item d-flex justify-content-between lh-sm">
                 <div>
                   <h5 className="my-2">Delivery Charges</h5>
                 </div>
                 <span className="text-muted my-2">
-                  +60
+                  $60
                 </span>
               </li>:""}
               <li className="list-group-item d-flex justify-content-between lh-sm">
                 <div>
                   <h5 className="my-2">Checkout Amount</h5>
                 </div>
-                <span className="text-muted my-2">₹ {afterDeliveryCharger}</span>
+                <span className="text-muted my-2">$ {afterDeliveryCharger}</span>
               </li>
               <div className="input-group">
                 <button type="submit" className="btn btn-success w-100 mt-3">
@@ -64,7 +64,7 @@ const Cart = () => {
                         <div className="m-3">
                           <div className=' text-capitalize text-secondary'>{item.category}</div>
                           <div className="fs-4">{item.title.substring(0, 28)}</div>
-                          <div className='fs-5'>₹ {item.price}</div>
+                          <div className='fs-5'>$ {item.price}</div>
                         </div>
                       </div>
                       <div className="d-flex flex-row align-items-center">
